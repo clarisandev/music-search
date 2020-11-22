@@ -1,9 +1,6 @@
-const express = require("express");
-const fetch = require("node-fetch");
+const server = require('./src/app.js')
+require('dotenv').config()
 
-const app = express();
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
-});
+server.listen(process.env.PORT, () => {
+    console.log(`Listening to port: ${process.env.PORT}` )
+})

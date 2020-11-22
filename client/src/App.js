@@ -1,11 +1,18 @@
 import React from 'react'
-import './App.scss';
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import Search from './components/Search'
+import  Cards  from './components/Cards';
 
 function App() {
   return (
-    <div className="App">
-      lalalla
-    </div>
+    <React.Fragment>
+      <Router>
+        <Switch>
+          <Route path='/' component = { Search } />
+          <Route path='/searchMusic' component = { Cards }/>
+        </Switch>
+      </Router>
+    </React.Fragment>
   );
 }
 
