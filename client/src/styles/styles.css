@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@200;300;400;500&display=swap");
+.section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 70vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section .home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  -webkit-transform: translateY(0.5);
+          transform: translateY(0.5);
+}
+
+.section .home img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section .home .HomeSearch {
+  font-family: "Anton", sans-serif;
+  position: absolute;
+  top: 70%;
+  left: 15%;
+  color: white;
+  font-size: 60px;
+  -webkit-transform: translate(-20%, -70%);
+          transform: translate(-20%, -70%);
+  z-index: 3;
+}
+
+.section .home .HomeYour {
+  font-family: "Anton", sans-serif;
+  color: white;
+  font-size: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.section .home .HomeFavMusic {
+  font-family: "Anton", sans-serif;
+  color: white;
+  font-size: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.section .home::after {
+  content: '';
+  background: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+}
+
+.section .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: -webkit-gradient(linear, right top, left top, from(#060813), to(#111640));
+  background: linear-gradient(to left, #060813, #111640);
+  z-index: -1;
+}
+
+.navBarContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 1fr 1fr 15%;
+      grid-template-columns: 5% 1fr 1fr 15%;
+}
+
+.navBarContainer .navBarLogoCont {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navBarContainer .navBarLogoCont .navBarImg {
+  height: 20vh;
+  width: auto;
+}
+
+.navBarContainer .navBarButtonCont {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-self: end;
+}
+
+.navBarContainer .navBarButtonCont .navBarButton {
+  cursor: pointer;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: .6s;
+          transition-duration: .6s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 45px;
+  padding: 5vh;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin: 0 0 2em;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.navBarContainer .navBarButtonCont .navBarButton:hover, .navBarContainer .navBarButtonCont .navBarButton:active {
+  letter-spacing: 5px;
+}
+
+.navBarContainer .navBarButtonCont .navBarButton:after, .navBarContainer .navBarButtonCont .navBarButton:before {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  bottom: 0px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 280ms ease-in-out;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.navBarContainer .navBarButtonCont .navBarButton:hover:after, .navBarContainer .navBarButtonCont .navBarButton:hover:before {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-color: #fff;
+  -webkit-transition: width 350ms ease-in-out;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+.navBarContainer .navBarButtonCont .navBarButton:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}
+/*# sourceMappingURL=styles.css.map */

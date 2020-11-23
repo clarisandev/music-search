@@ -1,7 +1,8 @@
-import { GET_MUSIC } from '../constants'
+import { GET_MUSIC, GET_PLAYER } from '../constants'
 
 const initialState = {
-    search: []
+    search: [],
+    track: []
 }
 
 const reducers = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const reducers = (state = initialState, action) => {
             ...state,
             search: action.payload,
             };
+        case GET_PLAYER:
+            return {
+                ...state,
+                track: action.payload 
+            }
         default:
             return state
     }
