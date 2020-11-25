@@ -1,2 +1,6 @@
 export const GET_MUSIC = 'GET_MUSIC'
 export const GET_PLAYER = 'GET_PLAYER'
+export const GET_ARTIST_TOP_FIVE = 'GET_ARTIST_TOP_FIVE'
+export const GET_ALBUM_TRACKS = 'GET_ALBUM_TRACKS'
+export const GET_ARTIST_ALBUMS = 'GET_ARTIST_ALBUMS'
+export const GET_ALBUM = 'GET_ALBUM'

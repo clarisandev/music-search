@@ -5,8 +5,8 @@ import  Cards  from './components/Cards';
 import Player from './components/Player';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import Playlist from './components/Playlist';
-import Radio from './components/Radio';
+import Artist from './components/Artist';
+import Album from './components/Album';
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
           <Route path='/search' component = { Search }/>
           <Route path='/music' component = { Cards }/>
           <Route path='/player' component = { Player }/>
-          <Route path='/playlist' component = { Playlist }/>
-          <Route path='/radio' component = { Radio }/>
+          <Route path='/album' component = { Album }/>
+          <Route path='/artist' component = { Artist }/>
         </Switch>
       </Router>
     </React.Fragment>

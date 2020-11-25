@@ -1,6 +1,22 @@
 @import './functions.scss';
 @import './var.scss';
 
+@keyframes left-to-rigth {
+    100% {
+        transform: translateX(0%);
+    }
+    0%{
+        transform: translateX(100%);
+    }
+}
+@keyframes transformer {
+    100%{
+        transform: translate(0%, 0%);
+    }
+    0%{
+        transform: translate(-20%, -70%);
+    }
+}
 .section {
     display: flex;
     height: 70vh;
@@ -14,37 +30,21 @@
         justify-content: center;
         align-items: center;
         position:relative;
-        transform: translateY(0.5);
         img{
-            width: 100%;
+            width: 80%;
             height: 100%;
             object-fit: cover;
+            animation: left-to-rigth 2s ease-in;
         }
         .HomeSearch{
             font-family: $fontHome;
             position: absolute;
-            top: 70%;
+            top: 50%;
             left: 15%;
             color: white;
             font-size: 60px;
-            transform: translate(-20%, -70% );
+            animation: transformer 1s ease;
             z-index: 3;
-        }
-        .HomeYour{
-            font-family: $fontHome;
-            color: white;
-            font-size: 50px;
-            display: flex;
-            width: 100%;
-            height: 100%;
-        }
-        .HomeFavMusic{
-            font-family: $fontHome;
-            color: white;
-            font-size: 70px;
-            display: flex;
-            width: 100%;
-            height: 100%;
         }
     }
     .home::after{
@@ -63,20 +63,27 @@
         left: 0;
         height: 100vh;
         width: 100%;
-        background: linear-gradient(to left, #060813, #111640);
+        background: white;
         z-index: -1;
+        animation: transformer 1s ease;
     }
 }
 
 .navBarContainer{
     display: grid;
     grid-template-columns: 5% 1fr 1fr 15%;
+    max-height: 20vh;
     .navBarLogoCont{
     grid-column: 2/3;
         display: flex;
-        .navBarImg{
-            height: 20vh;
-            width: auto;
+        align-items: center;
+        margin-left: -4vh;
+        .navBarLogoImg{
+            cursor: pointer;
+            display: flex;
+            color: white;
+            font-weight: 500;
+            height: 10vh;
         }
     }
     .navBarButtonCont{
@@ -101,7 +108,6 @@
             font-size: 20px;
             font-weight: 500;
             letter-spacing: 0;
-            margin: 0 0 2em;
             max-width: 160px; 
             position: relative;
             text-decoration: none;
@@ -140,60 +146,220 @@
 }
 
 .searchContainer{
+    height: 100%;
     .searchGrid{
         .searchGridItem{
             display: flex;
-            align-content: center;
             justify-content: center;
+            align-items: center;
             .MuiInputBase-input{
                 width: 60vh;
                 color: white;  
                 font-family: $font-buttons;
+                background-color: transparent;
             }
             .MuiInputLabel-formControl{
                 color: white;  
                 font-family: $font-buttons;
                 width: 60vh;
             }
+            .MuiInput-underline:before{
+                border-bottom: 1px solid rgba(#F7B32B, 0.5);
+                background-color: transparent;
+            }
+            .MuiInput-underline:after{
+                border-bottom: 3px solid rgba(#F7B32B, 0.5);
+                background-color: transparent;
+            }            
             .searchButton{
                 margin: 5vh;
+                padding: 2vh;
+                border: 0;
+                border-radius: 30px;
+                background-color: #F7B32B;
+                cursor: pointer;
+                .fa.fa-search{
+                    color: white;
+                    font-size: 25px;
+                }
             }
         }
+        
     }
 }
 
 .playerContainer{
-    @include display-center;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
+    align-items: center;
     .gridPlayer{
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
         color: white;
-        font-weight: 500;
-        .animate__backInDown{
-            font-size: 65px;
-            position: absolute;
-            top: 25vh;
-            text-transform: uppercase;
+        animation: bottom-to-top 0.5s ease-in;
+        padding-bottom: 10vh;
+        min-width: 55vh;
+        .gridPlayerContainer{
+            background-color: rgba(rgb(0, 0, 0), 0.5);
+            display: flex;
+            border-radius: 10px;
+            flex-direction: column;
+            min-width: 125vh;
+            .divPlayerTitle{
+                font-size: 35px;
+                font-weight: 400;
+                margin-left: 5vh;
+            }
+            .divPlayerArtist{
+                font-size: 25px;
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+            .divPlayerAlbum{
+                font-size: 15px;
+                font-weight: 300;
+                margin-left: 15vh;
+            }
         }
-        .divPlayerArtist{
-            font-size: 35px;
-            position: absolute;
-            left: 10vh;
-            top: 45vh;
-            text-transform: uppercase;
-        }
-        .divPlayerAlbum{
-            font-size: 15px;
-            position: absolute;
-            left: 40vh;
-            top: 40vh;
-        }
+        
         .player{
-            box-shadow: 0px 2px 2px 1px rgba($color: #000000, $alpha: 0.5)
+            box-shadow: 2px 2px 3px 1px rgba($color: #000000, $alpha: 0.5)
+
+        }
+    }
+}
+
+.CardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    left: 10px;
+    .CardContainer{
+        animation: bottom-to-top 0.3s ease-in;
+        cursor: pointer;
+        background-color: #ffffff;
+        display: flex;            
+        padding: 5px;
+        margin: 5vh;
+        min-height: 40vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .TextCardContainer{
+            color: black;
+            width: -webkit-fill-available;
+            display: flex;
+            flex-direction: column;
+           .CardTitle{
+                font-size: 35px;
+            }
+            .CardArtist{
+                font-size: 20px;
+            }   
+            .CardAlbum{
+                font-size: 15px;
+                text-transform: uppercase;
+            } 
+        }
+        .ImgCardContainer{
+            width: -webkit-fill-available;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            img{
+                border: 0px;
+                box-shadow: 2px 2px 5px 1px rgba($color: #000000, $alpha: 0.5);
+                width: 75%;
+            }
+        }        
+    }
+}
+
+@keyframes bottom-to-top{
+    100%{
+        transform: translateY(0%);
+    }
+    0%{
+        transform: translateY(100%);
+    }
+}
+
+.artistContainer{
+    .topFiveContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .topFiveText{
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .topFiveArtist{
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            margin: 4vh 2vh;
+            padding: 2vh;
+        .topFiveTitle{
+
+        }
+        .topFiveDuration{
+            margin-right: 2vh
+        }
+        }
+        
+    }
+    .albumsContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .albumsText{
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .albumArtist{
+            background-color: white;
+            display: -ms-flexbox;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-content: space-evenly;  
+            align-self: center;
+            padding: 4vh;
+            margin: 4vh;
+            width: 40vh;
+            height: 40vh;
+            .albumsTitle{
+                align-self: center;
+                display: flex;
+                text-align: center;
+            }
+            .albumsImg{
+                align-self: center;
+                display: flex;
+            }
+        }
+        
+    }
+}
+
+.albumContainer{
+    .albumInfo{
+        font-size: 32px;
+        text-align: center;
+        background-color: white;
+    }
+    .albumtracks{
+        background-color: white;
+        padding: 2vh;
+        display: flex;
+        .trackinfo{
+            margin: 2vh;
+            padding: 2vh;
         }
     }
 }

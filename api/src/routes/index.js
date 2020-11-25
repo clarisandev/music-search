@@ -1,7 +1,11 @@
-const { Router } = require('express')
-const music = require('./music.js');
+const { Router } = require('express');
+const player = require('./player.js');
+const search = require('./search.js');
+const artist = require('./artist.js')
 const router = Router()
 
-router.use('/music', music);
+router.use('/search', search);
+router.use('/player', player);
+router.use('/artist', artist);
 
 module.exports = router

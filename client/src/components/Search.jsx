@@ -20,16 +20,10 @@ const Search = () => {
 
     return (
         <div className='searchContainer'>
-            <Grid container className='searchGrid' spacing={3}>
+            <Grid container className='searchGrid'>
                 <Grid item className='searchGridItem' xs={12}>
-                    <TextField id="custom-css-standard-input" className='searchInput' value={search} label="Search your music" onChange={handleChange} />
-                    <button className='searchButton' onClick={handleClick}>Search</button>
-                    <IconButton aria-label="search" disabled color="primary">
-                    <i class="fas fa-search"></i>
-                    </IconButton>
-                    <button class="search-btn" type="submit">
-<span>Search</span>
-</button>
+                    <TextField  className='searchInput' value={search} label="Search your music" onChange={handleChange} />
+                    <button className='searchButton' onClick={handleClick}> <i class="fa fa-search"></i></button>
                 </Grid>
                 <Cards />
             </Grid>

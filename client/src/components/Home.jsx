@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/styles.scss'
-import homeImg2 from './homeImg2.jpg'
+import homeImg2 from './img/homeImg2.jpg'
 import gsap , {Power2} from 'gsap'
 
 const Home = () => {
@@ -20,14 +20,8 @@ const Home = () => {
             <div className='home' >
                 <img src={homeImg2} alt='' />
                 <div className='HomeSearch'>
-                    SEARCH YOUR FAV MUSIC
+                    SEARCH YOUR FAVORITE MUSIC
                 </div>
-                {/* <div className='HomeYour'>
-                    YOUR
-                </div>
-                <div className='HomeFavMusic'>
-                    FAV MUSIC
-                </div> */}
             </div>
             <div className='slider'></div>
         </div>

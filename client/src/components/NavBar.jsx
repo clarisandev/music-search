@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-import Musicallite from '../styles/img/Musicallite.png'
+import Logo1 from './img/Logo1.png'
 import '../styles/styles.scss'
 
 const NavBar = () => {
@@ -14,16 +14,18 @@ const NavBar = () => {
     const handleClickRadio = () => {
         history.push('/radio')
     }
-
+    const handleClickLogo = () => {
+        history.push('/')
+    }
     return (
         <div className='navBarContainer'>
             <div className='navBarLogoCont'>
-                
+                <img className='navBarLogoImg' src={Logo1} alt = '' onClick={handleClickLogo} ></img> 
             </div>
             <div className='navBarButtonCont'>
-                <button className='navBarButton' onClick={handleClickSearch}>SEARCH</button>
-                <button className='navBarButton' onClick={handleClickPlaylist}>PLAYLIST</button>
-                <button className='navBarButton' onClick={handleClickRadio}>RADIO</button>
+                <button className='navBarButton' onClick={handleClickSearch}>START</button>
+                {/* <button className='navBarButton' onClick={handleClickPlaylist}>PLAYLIST</button>
+                <button className='navBarButton' onClick={handleClickRadio}>RADIO</button> */}
             </div>
         </div>
     )
