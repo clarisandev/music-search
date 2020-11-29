@@ -17,13 +17,18 @@ const Card = (props) => {
 
     return (
         <div className='CardContainer' onClick={handleClick} key={key}>
-            <div  className='TextCardContainer'>
-                <p  className='CardTitle'> {album.title_short}</p>
-                <p  className='CardAlbum'>{album.album}</p>
-                <p  className='CardArtist'>{album.artist}</p>
+            <div className='CardInfoContainer'>
+                <div className='TextCardContainer'>
+                    <p className='CardTitle'> {album.title_short}</p>
+                    <p className='CardAlbum'>{album.album}</p>
+                    <p className='CardArtist'>{album.artist}</p>
+                </div>
+                <div className='ImgCardContainer'>
+                    <img src={album.image} alt='' />
+                </div>
             </div>
-            <div  className='ImgCardContainer'>
-                <img src={album.image} alt='' />
+            <div className='playCardContainer'>
+                <p className='playCard'>PLAY</p><i class="fas fa-play"></i>
             </div>
         </div>
     )

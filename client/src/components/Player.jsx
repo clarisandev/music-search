@@ -1,8 +1,7 @@
-import { Grid } from "@material-ui/core";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router'
-import { actionGetArtistAlbums, actionGetArtistTopFive } from "../redux/actions/actions";
+import { actionGetArtistAlbums, actionGetArtistTopFive, actionGetArtist} from "../redux/actions/actions";
 
 const Player = () => {
 
@@ -10,37 +9,43 @@ const Player = () => {
     const history = useHistory()
     const track = useSelector(state => state.reducers.track)
 
-    const onclicle = () => {
+    const selector = document.querySelector("div.gridContainerInfo")
+
+    selector.classList.add('magictime', 'puffIn')
+
+    const handleClick = () => {
         dispatch(actionGetArtistTopFive(track.artistId))
+        dispatch(actionGetArtist(track.artistId))
         dispatch(actionGetArtistAlbums(track.artistId))
         setTimeout(() => {
             return history.push('/artist')
-        }, 200)
+        }, 300)
     }
 
     return (
-        <Grid container className='playerContainer'>
-            <Grid className='gridPlayer' item xs={6}>
-                <iframe className='player' scrolling="no" frameborder="0" allowTransparency="true" src={`https://www.deezer.com/plugins/player?format=square&autoplay=false&playlist=false&width=600&height=600&color=EF5466&layout=dark&size=big&type=tracks&id=${track.id}app_id=dark`} width="400" height="400"></iframe>
-            </Grid>
-            <Grid className='gridPlayer' item xs={6}>
+        <div container className='playerContainer'>
+            <div className='gridPlayerTrack' item xs={6}>
+                <iframe className='player' scrolling="no" frameborder="0" allowTransparency="true" src={`https://www.deezer.com/plugins/player?format=square&autoplay=false&playlist=false&width=400&height=400&color=EF5466&layout=dark&size=medium&type=tracks&id=${track.id}app_id=dark`} width="400" height="400"></iframe>
+            </div>
+            <div className='gridPlayerInfo' item xs={6}>
                 <div className='gridPlayerContainer'>
-                <div className='divPlayerTitle'>
-                    {track.title_short}
+                    <div className='divPlayerTitle'>
+                        {track.title_short}
+                    </div>
+                    <div className='divAlbumArtistCont'>
+                        <div className='divPlayerAlbum'>
+                            {track.album}
+                        </div>
+                        <div className='divPlayerArtist'>
+                            {track.artist}
+                        </div>
+                    </div>
                 </div>
-                <div className='divPlayerAlbum'>
-                    {track.album}
+                <div className='buttonSeeMoreContainer'>
+                    <button className='buttonSeeMore' onClick={handleClick}>SEE MORE</button>
                 </div>
-                <div className='divPlayerArtist'>
-                    {track.artist}
-                </div>
-                <div>
-                    <button onClick = {onclicle}>casc</button>
-                </div>
-                </div>
-            </Grid>
-            
-        </Grid>
+            </div>
+        </div>
     )
 };
 

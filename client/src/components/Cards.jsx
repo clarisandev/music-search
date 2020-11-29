@@ -8,15 +8,15 @@ const Cards = () => {
     const search = useSelector(state => state.reducers.search)
 
     return (
-        <Grid container className='CardsContainer'>
+        <div container className='CardsContainer'>
             {search.map((album, index) => {
                 return (
-                    <Grid item xs={6}>
+                    <div className='CardsInfo'>
                         <Card key={index} album={album} />
-                    </Grid>
+                    </div>
                 )
             })}
-        </Grid>
+        </div>
     )
 }
 

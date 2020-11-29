@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +14,7 @@ html {
   font-family: "Poppins", sans-serif;
   height: 100%;
   width: 100%;
-  background: -webkit-gradient(linear, right top, left top, from(#060813), to(#111640));
-  background: linear-gradient(to left, #060813, #111640);
+  background-color: #23232C;
 }
 
 code {

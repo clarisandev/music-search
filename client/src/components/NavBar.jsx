@@ -24,8 +24,6 @@ const NavBar = () => {
             </div>
             <div className='navBarButtonCont'>
                 <button className='navBarButton' onClick={handleClickSearch}>START</button>
-                {/* <button className='navBarButton' onClick={handleClickPlaylist}>PLAYLIST</button>
-                <button className='navBarButton' onClick={handleClickRadio}>RADIO</button> */}
             </div>
         </div>
     )

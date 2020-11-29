@@ -1,4 +1,4 @@
-import { GET_MUSIC, GET_PLAYER, GET_ARTIST_TOP_FIVE, GET_ARTIST_ALBUMS, GET_ALBUM_TRACKS, GET_ALBUM } from '../constants'
+import { GET_MUSIC, GET_PLAYER, GET_ARTIST_TOP_FIVE, GET_ARTIST_ALBUMS, GET_ARTIST, GET_ALBUM } from '../constants'
 
 const initialState = {
     search: [],
@@ -6,7 +6,8 @@ const initialState = {
     artistTopFive: [],
     artistAlbums: [],
     tracks: [],
-    album: []
+    album: [],
+    artist: []
 }
 
 const reducers = (state = initialState, action) => {
@@ -35,6 +36,11 @@ const reducers = (state = initialState, action) => {
             return {
                 ...state,
                 album: action.payload
+            }
+        case GET_ARTIST:
+            return {
+                ...state,
+                artist: action.payload
             }
         default:
             return state

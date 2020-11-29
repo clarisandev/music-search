@@ -17,8 +17,6 @@ const cache = (req, res, next) => {
     });
 };
 
-
-
 server.get('/top5', cache, (req, res, next) => {
     const { artist_id } = req.query
     axios.get(`https://api.deezer.com/artist/${artist_id}/top`).then(response => {
@@ -81,6 +79,21 @@ server.get('/tracks', cache, (req, res, next) => {
             cover: album_cover,
             tracks: data
         })
+    }).catch(() => {
+        res.sendStatus(404)
+    })
+})
+
+server.get('/info', cache, (req,res,next) => {
+    const { id } = req.query
+    axios.get(`https://api.deezer.com/artist/${id}`).then( response => {
+        const data = response.data.map( el => {
+            return {
+                name: el.name,
+                img: el.picture_big
+            }
+        })
+        res.send(data)
     }).catch(() => {
         res.sendStatus(404)
     })

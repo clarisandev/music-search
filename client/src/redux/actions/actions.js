@@ -1,8 +1,7 @@
 import axios from 'axios'
 import {
-    GET_MUSIC, GET_PLAYER, GET_ARTIST_TOP_FIVE, GET_ARTIST_ALBUMS, GET_ALBUM_TRACKS, GET_ALBUM
+    GET_MUSIC, GET_PLAYER, GET_ARTIST_TOP_FIVE, GET_ARTIST_ALBUMS, GET_ARTIST, GET_ALBUM
 } from '../constants'
-var qs = require('qs');
 
 const url = "http://localhost:3001/";
 
@@ -42,6 +41,15 @@ export const actionGetAlbum = (id) => {
       return (dispatch) => {
             axios.get(url + 'artist/tracks/?id=' + id , { withCredentials: true }).then(res => {
                   dispatch({ type: GET_ALBUM, payload: res.data })
+            })
+      }
+}
+
+export const actionGetArtist = (id) => {
+      console.log(id)
+      return (dispatch) => {
+            axios.get(url + 'artist/info/?id=' + id, { withCredentials: true }).then( res => {
+                  dispatch({ type: GET_ARTIST, payload: res.data })
             })
       }
 }

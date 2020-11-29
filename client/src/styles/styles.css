@@ -1,4 +1,70 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+@-webkit-keyframes left-to-rigth {
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+@keyframes left-to-rigth {
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes transformer {
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  0% {
+    -webkit-transform: translate(-20%, -70%);
+            transform: translate(-20%, -70%);
+  }
+}
+
+@keyframes transformer {
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  0% {
+    -webkit-transform: translate(-20%, -70%);
+            transform: translate(-20%, -70%);
+  }
+}
+
+@-webkit-keyframes out {
+  100% {
+    -webkit-transform: translateZ(1);
+            transform: translateZ(1);
+  }
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+  }
+}
+
+@keyframes out {
+  100% {
+    -webkit-transform: translateZ(1);
+            transform: translateZ(1);
+  }
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+  }
+}
+
 .section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -29,49 +95,27 @@
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  -webkit-transform: translateY(0.5);
-          transform: translateY(0.5);
 }
 
 .section .home img {
-  width: 100%;
+  width: 80%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-animation: left-to-rigth 2s ease-in;
+          animation: left-to-rigth 2s ease-in;
 }
 
 .section .home .HomeSearch {
   font-family: "Anton", sans-serif;
   position: absolute;
-  top: 70%;
+  top: 50%;
   left: 15%;
   color: white;
   font-size: 60px;
-  -webkit-transform: translate(-20%, -70%);
-          transform: translate(-20%, -70%);
+  -webkit-animation: transformer 1s ease;
+          animation: transformer 1s ease;
   z-index: 3;
-}
-
-.section .home .HomeYour {
-  font-family: "Anton", sans-serif;
-  color: white;
-  font-size: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.section .home .HomeFavMusic {
-  font-family: "Anton", sans-serif;
-  color: white;
-  font-size: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100%;
 }
 
 .section .home::after {
@@ -91,9 +135,10 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  background: -webkit-gradient(linear, right top, left top, from(#060813), to(#111640));
-  background: linear-gradient(to left, #060813, #111640);
+  background: white;
   z-index: -1;
+  -webkit-animation: transformer 1s ease;
+          animation: transformer 1s ease;
 }
 
 .navBarContainer {
@@ -101,6 +146,7 @@
   display: grid;
   -ms-grid-columns: 5% 1fr 1fr 15%;
       grid-template-columns: 5% 1fr 1fr 15%;
+  max-height: 20vh;
 }
 
 .navBarContainer .navBarLogoCont {
@@ -110,11 +156,20 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: -4vh;
 }
 
-.navBarContainer .navBarLogoCont .navBarImg {
-  height: 20vh;
-  width: auto;
+.navBarContainer .navBarLogoCont .navBarLogoImg {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  font-weight: 500;
+  height: 10vh;
 }
 
 .navBarContainer .navBarButtonCont {
@@ -161,7 +216,6 @@
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0;
-  margin: 0 0 2em;
   max-width: 160px;
   position: relative;
   text-decoration: none;
@@ -171,12 +225,12 @@
 
 .navBarContainer .navBarButtonCont .navBarButton:hover, .navBarContainer .navBarButtonCont .navBarButton:active {
   letter-spacing: 5px;
+  border: 0;
 }
 
 .navBarContainer .navBarButtonCont .navBarButton:after, .navBarContainer .navBarButtonCont .navBarButton:before {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  border: 1px solid rgba(255, 255, 255, 0);
   bottom: 0px;
   display: block;
   margin: 0 auto;
@@ -199,5 +253,531 @@
   bottom: auto;
   top: 0;
   width: 70%;
+}
+
+.navBarContainer .navBarButtonCont .navBarButton:focus {
+  outline: none;
+}
+
+.navBarContainer .navBarButtonCont:focus {
+  outline: none;
+}
+
+.searchContainer {
+  height: 100%;
+}
+
+.searchContainer .searchGrid .searchGridItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchContainer .searchGrid .searchGridItem .MuiInputBase-input {
+  width: 60vh;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background-color: transparent;
+  font-weight: 300;
+}
+
+.searchContainer .searchGrid .searchGridItem .MuiInputLabel-formControl {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  width: 60vh;
+  font-weight: 300;
+}
+
+.searchContainer .searchGrid .searchGridItem .MuiInput-underline:before {
+  border-bottom: 1px solid white;
+  background-color: transparent;
+}
+
+.searchContainer .searchGrid .searchGridItem .MuiInput-underline:after {
+  border-bottom: 3px solid white;
+  background-color: transparent;
+}
+
+.searchContainer .searchGrid .searchGridItem .searchButton {
+  margin: 5vh;
+  padding: 2vh;
+  border: 0;
+  border-radius: 30px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.searchContainer .searchGrid .searchGridItem .searchButton .fa.fa-search {
+  color: #23232C;
+  font-size: 25px;
+}
+
+.searchContainer .searchGrid .searchGridItem .searchButton:focus {
+  border: 0;
+  outline: 0;
+}
+
+.playerContainer {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-grid-columns: 60% 40%;
+      grid-template-columns: 60% 40%;
+  width: 100%;
+  height: 100%;
+}
+
+.playerContainer .gridPlayerTrack {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  -webkit-animation: bottom-to-top 0.5s ease-in;
+          animation: bottom-to-top 0.5s ease-in;
+  padding-bottom: 10vh;
+  min-width: 55vh;
+}
+
+.playerContainer .gridPlayerInfo {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  color: white;
+  -webkit-animation: bottom-to-top 0.5s ease-in;
+  animation: bottom-to-top 0.5s ease-in;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.playerContainer .gridPlayerInfo .gridPlayerContainer {
+  background-color: rgba(255, 255, 255, 0.219);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60vh;
+}
+
+.playerContainer .gridPlayerInfo .gridPlayerContainer .divPlayerTitle {
+  font-size: 30px;
+  font-weight: 400;
+  margin: 3vh 3vh 0vh 3vh;
+}
+
+.playerContainer .gridPlayerInfo .gridPlayerContainer .divAlbumArtistCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2vh;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.playerContainer .gridPlayerInfo .gridPlayerContainer .divAlbumArtistCont .divPlayerArtist {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.712);
+}
+
+.playerContainer .gridPlayerInfo .gridPlayerContainer .divAlbumArtistCont .divPlayerAlbum {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.playerContainer .gridPlayerInfo .buttonSeeMoreContainer {
+  padding-top: 5vh;
+}
+
+.playerContainer .gridPlayerInfo .buttonSeeMoreContainer .buttonSeeMore {
+  background-color: transparent;
+  border: 1px solid white;
+  width: 25vh;
+  height: 10vh;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.playerContainer .gridPlayerInfo .buttonSeeMoreContainer .buttonSeeMore:hover {
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.267);
+}
+
+.playerContainer .gridPlayerInfo .buttonSeeMoreContainer .buttonSeeMore:focus {
+  outline: none;
+}
+
+.CardsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.CardsContainer .CardContainer {
+  -webkit-animation: bottom-to-top 0.1s ease-in;
+          animation: bottom-to-top 0.1s ease-in;
+  cursor: pointer;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50vh;
+  margin: 5vh;
+  height: 20vh;
+}
+
+.CardsContainer .CardContainer .CardInfoContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
+.CardsContainer .CardContainer .CardInfoContainer .TextCardContainer {
+  color: black;
+  width: -webkit-fill-available;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.CardsContainer .CardContainer .CardInfoContainer .TextCardContainer .CardTitle {
+  font-size: 20px;
+}
+
+.CardsContainer .CardContainer .CardInfoContainer .TextCardContainer .CardArtist {
+  font-size: 10px;
+}
+
+.CardsContainer .CardContainer .CardInfoContainer .TextCardContainer .CardAlbum {
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.CardsContainer .CardContainer .CardInfoContainer .ImgCardContainer {
+  width: -webkit-fill-available;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.CardsContainer .CardContainer .CardInfoContainer .ImgCardContainer img {
+  border: 0px;
+  -webkit-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+  width: 75%;
+}
+
+.CardsContainer .CardContainer .playCardContainer {
+  display: none;
+}
+
+.CardsContainer .CardContainer:hover .playCardContainer {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #00000059;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  -webkit-animation: out 3s ease-in;
+          animation: out 3s ease-in;
+}
+
+.CardsContainer .CardContainer:hover .playCardContainer .playCard {
+  font-family: "Roboto", "sans-serif";
+  font-weight: 300;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+  margin-right: 2vh;
+}
+
+.CardsContainer .CardContainer:hover .playCardContainer i.fas.fa-play {
+  color: white;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+@-webkit-keyframes bottom-to-top {
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@keyframes bottom-to-top {
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+.artistContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.artistContainer .topFiveContainer {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+}
+
+.artistContainer .topFiveContainer .topFiveText {
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.artistContainer .topFiveContainer .topFiveArtist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: white;
+  margin: 4vh 2vh;
+  padding: 2vh;
+  width: 100vh;
+}
+
+.artistContainer .topFiveContainer .topFiveArtist .topFiveDuration {
+  margin-right: 2vh;
+}
+
+.artistContainer .albumsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.artistContainer .albumsContainer .albumsText {
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.artistContainer .albumsContainer .otherAlbums {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.artistContainer .albumsContainer .otherAlbums .albumArtist {
+  background-color: white;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding: 4vh;
+  margin: 4vh;
+  width: 40vh;
+  height: 40vh;
+}
+
+.artistContainer .albumsContainer .otherAlbums .albumArtist .albumsTitle {
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.artistContainer .albumsContainer .otherAlbums .albumArtist .albumsImg {
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.albumContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.albumContainer .albumPlayer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.albumContainer .albumPlayer iframe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 0, 0, 0.712);
+}
+
+.albumContainer .albumInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 0, 0, 0.712);
+  margin: 0 5vh;
+}
+
+.albumContainer .albumInfo .artistAlbum {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5vh;
+  margin: 2vh 0;
+  width: 30vh;
+  height: 35vh;
+}
+
+.albumContainer .albumInfo .artistAlbum .albumTitle {
+  text-align: center;
+  color: white;
+  margin: 2vh;
+  font-family: "Roboto", "sans-serif";
+  font-weight: 300;
+}
+
+.albumContainer .albumInfo .artistAlbum .albumImg {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 20vh;
 }
 /*# sourceMappingURL=styles.css.map */

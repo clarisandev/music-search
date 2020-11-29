@@ -17,6 +17,16 @@
         transform: translate(-20%, -70%);
     }
 }
+
+@keyframes out {
+    100% {
+        transform: translateZ(1);
+    }
+    0%{
+        transform: translateZ(0);
+    }
+}
+
 .section {
     display: flex;
     height: 70vh;
@@ -116,13 +126,12 @@
             &:hover,
             &:active {
                 letter-spacing: 5px;
+                border: 0;
             }
             &:after,
             &:before {
                 backface-visibility: hidden;
-                border: 1px solid rgba(#fff, 0);
                 bottom: 0px;
-                // content: " ";
                 display: block;
                 margin: 0 auto;
                 position: relative;
@@ -141,6 +150,12 @@
                 top: 0;
                 width: 70%;
             }
+            &:focus{
+                outline: none;
+            }
+        }
+        &:focus{
+            outline: none;
         }
     }
 }
@@ -157,18 +172,20 @@
                 color: white;  
                 font-family: $font-buttons;
                 background-color: transparent;
+                font-weight: 300;
             }
             .MuiInputLabel-formControl{
                 color: white;  
                 font-family: $font-buttons;
                 width: 60vh;
+                font-weight: 300;
             }
             .MuiInput-underline:before{
-                border-bottom: 1px solid rgba(#F7B32B, 0.5);
+                border-bottom: 1px solid white;
                 background-color: transparent;
             }
             .MuiInput-underline:after{
-                border-bottom: 3px solid rgba(#F7B32B, 0.5);
+                border-bottom: 3px solid white;
                 background-color: transparent;
             }            
             .searchButton{
@@ -176,11 +193,15 @@
                 padding: 2vh;
                 border: 0;
                 border-radius: 30px;
-                background-color: #F7B32B;
+                background-color: white;
                 cursor: pointer;
                 .fa.fa-search{
-                    color: white;
+                    color: #23232C;
                     font-size: 25px;
+                }
+                &:focus{
+                    border: 0;
+                    outline: 0;
                 }
             }
         }
@@ -189,12 +210,12 @@
 }
 
 .playerContainer{
-    display: flex;
+    display: grid;
     flex-direction: column;
+    grid-template-columns: 60% 40%;
     width: 100%;
     height: 100%;
-    align-items: center;
-    .gridPlayer{
+    .gridPlayerTrack{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -202,32 +223,64 @@
         animation: bottom-to-top 0.5s ease-in;
         padding-bottom: 10vh;
         min-width: 55vh;
+    }
+    .gridPlayerInfo{
+        width: 80%;
+        display: flex;
+        -ms-flex-direction: column;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        -webkit-animation: bottom-to-top 0.5s ease-in;
+        animation: bottom-to-top 0.5s ease-in;
+        align-self: center; 
         .gridPlayerContainer{
-            background-color: rgba(rgb(0, 0, 0), 0.5);
+            background-color: rgba(255, 255, 255, 0.219);
             display: flex;
-            border-radius: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             flex-direction: column;
-            min-width: 125vh;
+            width: 60vh;
             .divPlayerTitle{
-                font-size: 35px;
+                font-size: 30px;
                 font-weight: 400;
-                margin-left: 5vh;
+                margin: 3vh 3vh 0vh 3vh;
             }
-            .divPlayerArtist{
-                font-size: 25px;
-                text-transform: uppercase;
-                font-weight: 300;
-            }
-            .divPlayerAlbum{
-                font-size: 15px;
-                font-weight: 300;
-                margin-left: 15vh;
+            .divAlbumArtistCont{
+                display: flex;
+                margin-bottom: 2vh;
+                justify-content: space-around;
+                .divPlayerArtist{
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, 0.712);
+                }
+                .divPlayerAlbum{
+                    font-size: 15px;
+                    font-weight: 300;
+                }
             }
         }
-        
-        .player{
-            box-shadow: 2px 2px 3px 1px rgba($color: #000000, $alpha: 0.5)
-
+        .buttonSeeMoreContainer{
+            padding-top: 5vh;
+            .buttonSeeMore{
+              background-color: transparent;  
+              border: 1px solid white;
+              width: 25vh;
+              height: 10vh;
+              color: white;
+              font-family: $font-buttons;
+              font-weight: 300;
+              font-size: 15px;
+              &:hover{
+                  border: 2px solid white;
+                  background-color: rgba(255, 255, 255, 0.267)
+              }
+              &:focus{
+                  outline: none;
+              }
+            }
         }
     }
 }
@@ -235,45 +288,80 @@
 .CardsContainer{
     display: flex;
     flex-wrap: wrap;
-    left: 10px;
+    justify-content: center;
     .CardContainer{
-        animation: bottom-to-top 0.3s ease-in;
+        animation: bottom-to-top 0.1s ease-in;
         cursor: pointer;
         background-color: #ffffff;
         display: flex;            
         padding: 5px;
+        flex-direction: column;
+        width: 50vh;
         margin: 5vh;
-        min-height: 40vh;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        .TextCardContainer{
-            color: black;
-            width: -webkit-fill-available;
-            display: flex;
-            flex-direction: column;
-           .CardTitle{
-                font-size: 35px;
-            }
-            .CardArtist{
-                font-size: 20px;
-            }   
-            .CardAlbum{
-                font-size: 15px;
-                text-transform: uppercase;
-            } 
+        height: 20vh;
+        .CardInfoContainer{
+                display: grid;
+                grid-template-columns: 50% 50%;
+                .TextCardContainer{
+                    color: black;
+                    width: -webkit-fill-available;
+                    display: flex;
+                    flex-direction: column;
+                .CardTitle{
+                        font-size: 20px;
+                    }
+                    .CardArtist{
+                        font-size: 10px;
+                    }   
+                    .CardAlbum{
+                        font-size: 9px;
+                        text-transform: uppercase;
+                    } 
+                }
+                .ImgCardContainer{
+                    width: -webkit-fill-available;
+                    display: flex;
+                    align-self: center;
+                    justify-content: center;
+                    img{
+                        border: 0px;
+                        box-shadow: 2px 2px 5px 1px rgba($color: #000000, $alpha: 0.5);
+                        width: 75%;
+                    }
+                }            
         }
-        .ImgCardContainer{
-            width: -webkit-fill-available;
-            display: flex;
-            align-self: center;
-            justify-content: center;
-            img{
-                border: 0px;
-                box-shadow: 2px 2px 5px 1px rgba($color: #000000, $alpha: 0.5);
-                width: 75%;
-            }
-        }        
+    .playCardContainer{
+        display: none;
     }
+    &:hover{
+        .playCardContainer{
+            color: white;
+            display: flex;
+            background-color: #00000059;
+            justify-content: center;
+            z-index: 1;
+            animation:  out 3s ease-in;
+            .playCard{
+                font-family: "Roboto", "sans-serif";
+                font-weight: 300;
+                font-size: 25px;
+                display: flex;
+                align-self: center;
+                text-align: center;
+                margin-right: 2vh;
+            }
+            i.fas.fa-play{
+                color: white;
+                font-size: 25px;
+                display: flex;
+                align-self: center;
+                text-align: center;
+            }
+            }
+        }   
+    }
+    
+
 }
 
 @keyframes bottom-to-top{
@@ -286,10 +374,14 @@
 }
 
 .artistContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .topFiveContainer{
+        cursor: pointer;
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 70%;
         .topFiveText{
             color: white;
             font-size: 25px;
@@ -302,6 +394,7 @@
             background-color: white;
             margin: 4vh 2vh;
             padding: 2vh;
+            width: 100vh;
         .topFiveTitle{
 
         }
@@ -314,52 +407,84 @@
     .albumsContainer{
         display: flex;
         flex-direction: column;
-        width: 100%;
+        align-items: center;
         .albumsText{
             color: white;
             font-size: 25px;
             font-weight: 500;
             text-align: center;
         }
-        .albumArtist{
-            background-color: white;
-            display: -ms-flexbox;
+        .otherAlbums{
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             justify-content: center;
-            justify-content: space-evenly;  
-            align-self: center;
-            padding: 4vh;
-            margin: 4vh;
-            width: 40vh;
-            height: 40vh;
-            .albumsTitle{
-                align-self: center;
+            .albumArtist{
+                background-color: white;
+                display: -ms-flexbox;
                 display: flex;
-                text-align: center;
-            }
-            .albumsImg{
+                flex-direction: column;
+                justify-content: center;
+                justify-content: space-evenly;  
                 align-self: center;
-                display: flex;
+                padding: 4vh;
+                margin: 4vh;
+                width: 40vh;
+                height: 40vh;
+                .albumsTitle{
+                    align-self: center;
+                    display: flex;
+                    text-align: center;
+                }
+                .albumsImg{
+                    align-self: center;
+                    display: flex;
+                }
             }
         }
-        
     }
 }
 
 .albumContainer{
-    .albumInfo{
-        font-size: 32px;
-        text-align: center;
-        background-color: white;
-    }
-    .albumtracks{
-        background-color: white;
-        padding: 2vh;
+    display:  flex;
+    .albumPlayer{
         display: flex;
-        .trackinfo{
-            margin: 2vh;
-            padding: 2vh;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        iframe {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.712);
+        }
+    }
+    .albumInfo{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.712);
+        margin: 0 5vh;
+        .artistAlbum{
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            border-radius: 5vh;
+            margin: 2vh 0;
+            width: 30vh;
+            height: 35vh;
+            .albumTitle{
+                text-align: center;
+                color: white;
+                margin: 2vh;
+                font-family: $font-roboto;
+                font-weight: 300;
+            }
+            .albumImg{
+                align-self: center;
+                height: 20vh;
+            }
         }
     }
 }
